@@ -1,0 +1,90 @@
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - basicSSHUserPrivateKey:
+              id: "jenkins-agent-ssh-key"
+              scope: GLOBAL
+              username: "jenkins"
+              privateKeySource:
+                directEntry:
+                  privateKey: |
+                    -----BEGIN OPENSSH PRIVATE KEY-----
+                    b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAACFwAAAAdzc2gtcn
+                    NhAAAAAwEAAQAAAgEAuwefWZuYHPWR0k2/9Ei7rZ9N7r8TnEL5PLwxPPZmgW/MlSyC1LwA
+                    Bxdm116z9Jsj1fjk7VDZr0o6B9k4MCzzgiJTbegcKo1Ybvj4HDSCbSJwoglNSPdZCMKQl5
+                    u4X1ITZMLMuDjbAvUH/fD+DU2EQ60mYm8pkmaG2ll8iSPaA3f3/t73/hdrXsn11N4yj+/u
+                    zSWO3XEWUbOd9SOl7k0mjy500R0DKgWErDEBgoJtkcqO1tFNwsSKwOLy8tRZwAPLN5zNWE
+                    Ckb5v+AadEljY6sTm1UqpNyt6lrEzo21/5jJTgI40SN0h72tkpjKZvPeI3jTJzJ2IRZRng
+                    G3miTPw89z1ZgZagRtPum7o2nsMdp35bmOBhP4ziujSO3Zj21U4xcg2fo7iHTIJG3gTy/q
+                    cetifs+UDIW0CFMP4Bco/7+y1j5uGVf/tF8d8b5B9rQRBl6LIJP0HcemQjFv/IB5DHGc7z
+                    MGNHjcjixaLNSgyfbGyYFcQTdkNMtJ3Wl2pPKkIVfv9OqqcmodvctmARoeHdqhKcEDIPtr
+                    QAYJcfBwcrcjNcblCgfzfhly7G5QTLgO6J3xxll9Xi99ZP2Q/AhLU1PBNjWC3xjU4o3pDk
+                    w1E3DxIsQDCUjdXCSOZuZcDk9loY4rLNlhbT7Ub6XjGxdPK0JFmklpeJHFdzJ/e2HGhuFP
+                    MAAAdI0AohItAKISIAAAAHc3NoLXJzYQAAAgEAuwefWZuYHPWR0k2/9Ei7rZ9N7r8TnEL5
+                    PLwxPPZmgW/MlSyC1LwABxdm116z9Jsj1fjk7VDZr0o6B9k4MCzzgiJTbegcKo1Ybvj4HD
+                    SCbSJwoglNSPdZCMKQl5u4X1ITZMLMuDjbAvUH/fD+DU2EQ60mYm8pkmaG2ll8iSPaA3f3
+                    /t73/hdrXsn11N4yj+/uzSWO3XEWUbOd9SOl7k0mjy500R0DKgWErDEBgoJtkcqO1tFNws
+                    SKwOLy8tRZwAPLN5zNWECkb5v+AadEljY6sTm1UqpNyt6lrEzo21/5jJTgI40SN0h72tkp
+                    jKZvPeI3jTJzJ2IRZRngG3miTPw89z1ZgZagRtPum7o2nsMdp35bmOBhP4ziujSO3Zj21U
+                    4xcg2fo7iHTIJG3gTy/qcetifs+UDIW0CFMP4Bco/7+y1j5uGVf/tF8d8b5B9rQRBl6LIJ
+                    P0HcemQjFv/IB5DHGc7zMGNHjcjixaLNSgyfbGyYFcQTdkNMtJ3Wl2pPKkIVfv9Oqqcmod
+                    vctmARoeHdqhKcEDIPtrQAYJcfBwcrcjNcblCgfzfhly7G5QTLgO6J3xxll9Xi99ZP2Q/A
+                    hLU1PBNjWC3xjU4o3pDkw1E3DxIsQDCUjdXCSOZuZcDk9loY4rLNlhbT7Ub6XjGxdPK0JF
+                    mklpeJHFdzJ/e2HGhuFPMAAAADAQABAAACAGEvsc83ehC6Tr7wZenDjbrHyBBivAb8ClVU
+                    GWXrSBLEjJOLoKR42K7WqzsI3AwkPbfncNYcqDFdKdCAQKFQCm059w5qiZBXCHgJ6auGYa
+                    viNJMOsFlVJq/VopsVcPYfSTKXwxeLe8sKls+PVgSFnlAofoSx7PFFU5fM3ljJB3W79mM7
+                    a7ReaQ3FdnfZyn5fGEED3jwVkpp78n26u3OcJYhLhKpRIB7K5Ukw4e72ZYdXsWfRNU4bIV
+                    rf04z5aXXMwuGwGkhcttXEQnaLe6lunosPSLifBHOBxKdHA81TDvLNPbdbi/asNKfhJqUO
+                    q0mF7oXxjEMPw6g8jObaCstkWyzdrNDcCg3cHAnChLsPDDRYAVNkcMQx+GPz1jWRUr4TG6
+                    vD1Wc9HBlqotpK6awbQsBfHmziHHSB43V7kXGGJpOPe3uz6CUGRYv6v5lmV6Oz2Upzd0dv
+                    32/G+EVAxC7l23tHVV33EYgkGMIMgar5GBsswjhmgFl+9mQeZ3hP03V5vP0m/bdp6lm/4H
+                    7omVgCTR1dbfiJ+64uq6dIyF/S2JMtMoQwJJWVPuABMWnZThy7z8DOFSsH77viesjf7ryJ
+                    d5B/qmjls3p267IF8vCkFNY4QXVjnSGVtsXPoZBwtAkLWC4XG5maSxomGMFuZS16/AtKLV
+                    WkXf5/gYIW5f0WM+DhAAABAQDnhLlE+MXDF/kexPDL+GOVnCkFStPr4A1ZmLgUFomAE4+f
+                    OBAIpuO0ha8h4bKI7DKpYixXDjm4Sl1Pwtf7vdpaL81K5ph5L3Zqa2AdjOu+Ho7z9LTRiB
+                    BLKFEj9TABcG6s4uLTaoWlqtt/Gf7ZpHJvKDQl5y/Ldmz2VKzAf5RuhvNpMTylpHgd0gCZ
+                    WE3tBcqDPOFBt3/UrUpQXVL2C/bokw1TuJ9/hk2V+lzzf79q3n40bckPsxPjZftsa0nrIY
+                    sH7+vwVfHZzQGUtsRJ2R5ma6feesK3SQZcU1NpgK2VFi5ugUkjkdWMasezSuBEu/Nj4bc6
+                    BJR/dbDMjvSMKFFSAAABAQD0PB7kgdOV4cN2YIoYAFvXVl3zjcjhg0MRAlaoWbDqiRcanE
+                    BnuAfwIB0ClS0N/M0+8FlqboOlciwKtMSySBBqgLBBQ4zIMJRxr8gNGFUEaahX8O6wGdzw
+                    vXE+5XOINpmjtEqtTiMieJid2DscH6HxbL9IFdHsJyjsl91MlCVWPaGZ5/1IZq9DAiP7sN
+                    2ljO+DbQAi1DndUgP1xjRBEa1JHKWEjVuMun6Z3BsLRnjwkmQTe0WyQ1WfC/g/mM9KXH5d
+                    m/fw0GZYP+8rJGdLIH7h2upRQEeTNI6QAzXhowBoVqhQVa9Bb2YW0WpEvPCX5Lkz/Wu3mT
+                    lN8Yn4BI0WKYrDAAABAQDECg3+EuthwgTgLSYSkJtyTAJ2/AG/gdmRa3xaAsmU/soiFcJz
+                    PHHIGcWt4V7ZC5JAkHdUkCRmQDXTzYRC1tJh5GJ6nV8AVnR3MLy+6YW349Fr81K0AJMqA2
+                    cggFC1ac0C/GesXvsJZSknTFZqTuG14ET0yZHpzTPLcC9l58g9kyaEPOLCqdHCkK+3WBCE
+                    DTI+sbC0GV2YIZvx3ed5hPj5RVv49Ffcs/epxFC7Jjktkd9vvIo5fjaa1WjVFt++1/l8S4
+                    o+jhGCyDC/YyvSsGi3B38DhVaLIzRY2A0iA8mVC/gSozIax3WUy0yHwsa7GEI2x7YFdVli
+                    jj3fZh3oOsoRAAAADWplbmtpbnMtYWdlbnQBAgMEBQ==
+                    -----END OPENSSH PRIVATE KEY-----
+
+jenkins:
+  systemMessage: "Jenkins configured automatically by JCasC plugin\n"
+  # Disable built-in nodes on the controller/server
+  mode: NORMAL
+  numExecutors: 0
+  labelString: ""
+  # Setup some default login
+  securityRealm:
+    local:
+      allowsSignup: false
+      enableCaptcha: false
+      users:
+        - id: "admin"
+          password: "Ea)stcoastPlay8matePolygraphDisqmissCongeniOal"
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+  # Define your agent(s) here
+  nodes:
+    - permanent:
+        name: "ssh-agent"
+        remoteFS: "/home/jenkins"
+        numExecutors: 2
+        labelString: "ssh-agent-label"
+        launcher:
+          SSHLauncher:
+            host: ${AGENT_HOST} # Use Docker Compose service name
+            credentialsId: "jenkins-agent-ssh-key"
+            port: ${AGENT_PORT}

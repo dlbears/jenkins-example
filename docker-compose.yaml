@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  jenkins-server:
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+      args:
+        AGENT_HOST: ${AGENT_HOST}
+        AGENT_PORT: ${AGENT_PORT}
+        AGENT_SSH_HOST_KEY: "${AGENT_SSH_HOST_KEY}"
+    environment:
+      AGENT_HOST: ${AGENT_HOST}
+      AGENT_PORT: ${AGENT_PORT}
+    ports:
+      - "8080:8080"
+    networks:
+      - jenkins
+    volumes: # If Jenkin needs to use Docker, Linux specific (but can be achieved on MacOS via Symlink)
+      - /var/run/docker.sock:/var/run/docker.sock
+  jenkins-agent:
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: Dockerfile.agent
+    depends_on:
+      - jenkins-server
+    networks:
+      - jenkins
+
+networks:
+  jenkins:

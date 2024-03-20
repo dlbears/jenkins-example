@@ -1,0 +1,3 @@
+configuration-as-code:latest
+ssh-slaves:latest
+git:latest

@@ -1,0 +1,33 @@
+# Use the official Jenkins server LTS image based on Alpine
+FROM jenkins/jenkins:lts-alpine
+
+# Accept build arguments for Jenkins agent hostname/IP, Port and SSH public key content
+ARG AGENT_HOST
+ARG AGENT_PORT
+ARG AGENT_SSH_HOST_KEY
+
+# Expose the default Jenkins port
+EXPOSE 8080
+EXPOSE 50000
+
+# Install Jenkins Plugins
+COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
+RUN jenkins-plugin-cli --plugin-file /usr/share/jenkins/ref/plugins.txt
+
+# Ensure .ssh directory exists
+RUN mkdir -p /var/jenkins_home/.ssh && \
+    chown jenkins:jenkins /var/jenkins_home/.ssh && \
+    chmod 700 /var/jenkins_home/.ssh
+
+# Dynamically generate the known_hosts file
+RUN echo "[$AGENT_HOST]:$AGENT_PORT $AGENT_SSH_HOST_KEY" > /var/jenkins_home/.ssh/known_hosts
+
+# Configure JCasC
+COPY jenkins.yaml /var/jenkins_home/casc_configs/jenkins.yaml
+ENV CASC_JENKINS_CONFIG=/var/jenkins_home/casc_configs/jenkins.yaml
+
+# Automatically approve the key (Consider security implications)
+ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
+
+# Copy SSH keys (to be used by JCasC)
+COPY keys/jenkins-agent-key.pub /var/jenkins_home/jenkins-agent-key.pub

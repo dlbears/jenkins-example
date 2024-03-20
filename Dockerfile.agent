@@ -1,0 +1,50 @@
+# Start from the Alpine base image
+FROM alpine:latest
+
+# Install Java and curl (required for Jenkins agent and downloading agent.jar)
+RUN apk add --update --no-cache openssh openjdk11-jre curl
+
+# Create Jenkins user and unlock for login set no password
+RUN adduser -D -h /home/jenkins jenkins && \
+    sed -i 's/^jenkins:!*/jenkins:/g' /etc/shadow
+
+# Set up SSH directory and authorized_keys file for Jenkins user
+RUN mkdir /home/jenkins/.ssh && \
+    chown jenkins:jenkins /home/jenkins/.ssh && \
+    chmod 700 /home/jenkins/.ssh
+
+# Copy the generated SSH host keys into the container
+COPY keys/ssh_agent_host_rsa_key /etc/ssh/ssh_host_rsa_key
+COPY keys/ssh_agent_host_rsa_key.pub /etc/ssh/ssh_host_rsa_key.pub
+
+# Correct permissions for SSH host keys
+RUN chmod 600 /etc/ssh/ssh_host_rsa_key && \
+    chmod 644 /etc/ssh/ssh_host_rsa_key.pub
+
+# Configure SSH to allow the Jenkins user
+RUN echo "AllowUsers jenkins" >> /etc/ssh/sshd_config
+
+# SSH login fix. Otherwise user is kicked off after login
+RUN sed -i 's/#PermitUserEnvironment no/PermitUserEnvironment yes/g' /etc/ssh/sshd_config
+
+USER jenkins
+
+# Create a directory for the Jenkins agent
+WORKDIR /home/jenkins
+
+# Copy the private key (Ensure it's securely stored and transferred)
+COPY --chown=jenkins:jenkins keys/jenkins-agent-key /home/jenkins/.ssh/id_rsa
+RUN chmod 600 /home/jenkins/.ssh/id_rsa
+
+# Copy the public SSH key into the authorized_keys file for the Jenkins user
+COPY --chown=jenkins:jenkins keys/jenkins-agent-key.pub /home/jenkins/.ssh/authorized_keys
+RUN chmod 600 /home/jenkins/.ssh/authorized_keys
+
+USER root
+
+RUN chmod 600 /home/jenkins/.ssh/id_rsa
+
+EXPOSE 22
+EXPOSE 50000
+
+CMD [ "/usr/sbin/sshd", "-D", "-e" ]
