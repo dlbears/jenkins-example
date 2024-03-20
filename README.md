@@ -12,7 +12,7 @@ This project sets up a Jenkins server and agent using Docker, requiring minimal 
 1. Clone the repository:
 
    ```
-   git clone <repository-url>
+   git clone https://github.com/dlbears/jenkins-example.git
    ```
 
 2. Create a `.env` file in the project root with the following variables:
@@ -97,7 +97,8 @@ The default admin credentials are:
 
 User Data Script for Amazon Linux 2 EC2 instance:
 
-Located under user-data/ folder
-Make sure to replace any template values that appear in the script like: <SOME-VALUE>
+Located under user-data/ folder.
+
+Make sure to replace any template values that appear in the script like: \<SOME-VALUE\>
 
 This user data script will install Docker on an Amazon Linux 2 EC2 instance. After the instance reboots, you can SSH into it and use Docker and Docker Compose commands to set up and run your Jenkins server and agent.
